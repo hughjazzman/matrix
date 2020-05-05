@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <style>
+        .very-large {font-size:300%;}
+        .vertical-center {
+        min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+        min-height: 100vh; /* These two lines are counted as one :-)       */
+
+        display: flex;
+        align-items: center;
+        }
+    </style>
+    <title>Matrix</title>
+</head>
+<body class="text-center very-large">
+    {%for row in matrix.grid%}
+
+    <div class="row">
+        <!--<div class="col-2"></div>-->
+        {%for col in row%}
+        <div class="col-2">{{col}}</div>
+        {%endfor%}
+    </div>
+
+    {%endfor%}
+</body>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <form method="post" class="col-4">
+                <label for="row1_swap">Row 1: </label>
+                <input name="row1_swap" class="col-2"><br>
+                <label for="row2_swap">Row 2: </label>
+                <input name="row2_swap" class="col-2"><br>
+                <input type="submit" id="swap" name="submit_swap" value="Swap"><br>
+
+            </form>
+            <form method="post" class="col-4">
+                <label for="scalar_mul">Scalar: </label>
+                <input name="scalar_mul" class="col-2"><br>
+                <label for="row_mul">Row: </label>
+                <input name="row_mul" class="col-2"><br>
+                <input type="submit" id="mul" name="submit_mul" value="Scalar">
+            </form>
+            <form method="post" class="col-4">
+                <!--<div class="row">-->
+                <!--<div class="col-2">-->
+                <label for="scalar">Scalar: </label>
+                <input name="scalar_add" class="col-2"><br>
+                <label for="row_from">Row From: </label>
+                <input name="row_from" class="col-2"><br>
+                <label for="row_to">Row To: </label>
+                <!--</div>
+            <div class="col-2">-->
+
+                <input name="row_to" class="col-2"><br>
+                <!--</div>-->
+                <!--</div>-->
+                <input type="submit" id="add" name="submit_add" value="Row Add">
+
+            </form>
+
+        </div>
+    </div>
+    {%if error==1%}
+    <p style="color:red;">Enter number only</p>
+    {%endif%}
+</body>
+</html>
