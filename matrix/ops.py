@@ -11,8 +11,8 @@ class Matrix:
             self.grid = grid
             self.make_grid()
         else:
-            self.rows=length(grid)
-            self.columns=length(grid[0]) if self.rows else 0
+            self.rows=len(grid)
+            self.columns=len(grid[0]) if self.rows else 0
             self.maxnum=maxnum
             self.grid=grid
 
@@ -57,6 +57,8 @@ class Matrix:
     def transpose(self):
         if self.is_empty(): return
         self.grid = [[self.grid[j][i] for j in range(self.rows)] for i in range(self.columns)]
+        self.rows = len(self.grid)
+        self.columns = len(self.grid[0])
 
     def frac_to_float(self, frac_str):
         try:

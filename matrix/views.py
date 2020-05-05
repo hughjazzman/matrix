@@ -7,7 +7,9 @@ from flask import render_template, request
 from matrix import app
 from .ops import *
 
-test = Matrix(2,2,5)
+
+grid=[[7,3,6],[4,6,8],[1,2,5]]
+test = Matrix(3,3,5, grid)
 test2 = Matrix()
 test3 = Matrix()
 
